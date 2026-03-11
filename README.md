@@ -1,57 +1,61 @@
-# retail_analytics_sql_project
-# Retail Analytics SQL Project (Medallion Architecture)
+# Retail Analytics with Medallion Architecture in Teradata
 
-This project demonstrates a Retail Analytics data pipeline built using the Medallion Architecture (Bronze, Silver, Gold). The pipeline transforms raw retail data into business-level insights using SQL.
+## 📌 Project Overview
+This project implements the Medallion Architecture (Bronze → Silver → Gold) using Teradata SQL to simulate a retail analytics pipeline.
 
-Architecture Used
-Medallion Architecture
+The system processes raw sales, customer, and product data and transforms it into meaningful business insights.
 
-Bronze Layer
-Raw ingestion layer containing source data for:
-- Customers
-- Products
-- Sales
+---
 
-Silver Layer
-Data cleaning and transformation layer where:
-- Data types are standardized
-- Derived columns such as age_group are created
-- Pricing transformations are applied
-- Sales amount and profit are calculated
+## 🏗 Architecture
 
-Gold Layer
-Business-level aggregated tables used for analytics such as:
-- Category performance metrics
-- Customer Lifetime Value (CLV)
-- Monthly sales trends
+### 🥉 Bronze Layer (Raw Data)
+- bronze_sales
+- bronze_customers
+- bronze_products
 
-Key Analytical Queries
-1. Total revenue by product category
-2. Top customers by revenue
-3. Monthly sales trends
-4. Customer Lifetime Value (CLV)
-5. Age group vs product category preference
-6. Month-to-month revenue change using LAG()
+### 🥈 Silver Layer (Cleaned & Transformed)
+- Data validation and cleaning
+- Derived columns (Revenue, Profit)
+- Customer age group classification
+- Standardized product information
 
-Technologies Used
-SQL
-VS Code
-GitHub
+Tables:
+- silver_sales
+- silver_customers
+- silver_products
 
-Project Structure
-retail-analytics-sql-project
-│
-├── bronze_tables.sql
-├── silver_tables.sql
-├── gold_tables.sql
-├── analysis_queries.sql
-└── README.md
+### 🥇 Gold Layer (Business Insights)
+Aggregated analytical tables for reporting:
 
-Learning Outcomes
-- Implemented Medallion Architecture for data pipelines
-- Practiced SQL transformations and joins
-- Used window functions like LAG and ROW_NUMBER
-- Performed business analytics on retail data
+- gold_category_metrics
+- gold_customer_ltv
+- gold_sales_trends
 
-Author
-Your Name
+---
+
+## 📊 Business Problems Solved
+
+1. Top revenue-generating product categories (Last Month)
+2. Top 5 customers by Lifetime Value
+3. Average sale amount per transaction by gender
+4. Monthly average profit per category
+5. Age group vs product category preference (CTE + ROW_NUMBER)
+6. Month-over-month revenue growth using LAG()
+
+---
+
+## 🛠 Tech Stack
+- Teradata
+- SQL
+- CTEs
+- Window Functions
+- Aggregations & Joins
+- Medallion Architecture
+
+---
+
+## 🚀 Key Learning Outcomes
+- Implemented multi-layer data architecture
+- Practiced advanced SQL analytics
+- Built end-to-end retail data pipeline
